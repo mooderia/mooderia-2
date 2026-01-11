@@ -1,12 +1,21 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f6fa;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #46178f, #7b2ff7);
+  color: white;
+}
+
+/* SCREENS */
 .screen {
   display: none;
   height: 100vh;
+  width: 100vw;
 }
 
 .screen.active {
@@ -15,62 +24,124 @@ body {
   align-items: center;
 }
 
+/* AUTH / DAILY MOOD */
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  animation: pop 0.4s ease;
+  background: #1f1147;
+  padding: 32px;
+  border-radius: 28px;
+  width: 340px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  animation: floatIn 0.6s ease;
 }
 
-@keyframes pop {
-  from { transform: scale(0.9); opacity: 0; }
+@keyframes floatIn {
+  from { transform: scale(0.85); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+.card h1 {
+  text-align: center;
+  font-weight: 800;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
 }
 
 button {
-  padding: 10px;
-  background: #6c2bd9;
-  color: white;
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
   border: none;
-  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  background: #00eaff;
+  color: #1f1147;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* APP LAYOUT */
+#app {
+  display: flex;
+}
+
+/* TILE NAVIGATION */
 .sidebar {
-  width: 220px;
-  background: #6c2bd9;
-  color: white;
+  width: 280px;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
 .sidebar button {
-  background: white;
-  color: #6c2bd9;
-  width: 100%;
-  margin: 5px 0;
+  height: 70px;
+  border-radius: 22px;
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
+.sidebar button:hover {
+  transform: scale(1.06);
+}
+
+.sidebar button:nth-child(1) { background: #7b2ff7; }
+.sidebar button:nth-child(2) { background: #00c2ff; }
+.sidebar button:nth-child(3) { background: #00e676; }
+.sidebar button:nth-child(4) { background: #ff5252; }
+.sidebar button:nth-child(5) { background: #ffd740; color: #222; }
+.sidebar button:nth-child(6) { background: #ff8a65; }
+
+/* MAIN CONTENT */
 main {
   flex: 1;
-  padding: 20px;
+  padding: 40px;
 }
 
+/* PAGES */
 .page {
   display: none;
 }
 
 .page.active {
   display: block;
+  animation: slideUp 0.4s ease;
 }
 
-.dark {
-  background: #1e1e2e;
-  color: white;
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* POSTS */
+#posts .card {
+  background: #2c1766;
+  margin-top: 16px;
+}
+
+.mood-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mood-options button {
+  background: #ffde59;
+  color: #222;
+  font-size: 22px;
 }
