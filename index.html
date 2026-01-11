@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MOODERIA – The Vibrant Metropolis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN / SIGN UP -->
+<div id="authScreen" class="screen active">
+  <div class="card">
+    <h1>MOODERIA</h1>
+    <p>The Vibrant Metropolis</p>
+
+    <input placeholder="Display Name">
+    <input placeholder="Username">
+    <input placeholder="Gmail">
+    <input type="password" placeholder="Password">
+
+    <button onclick="login()">APPLY FOR CITIZENSHIP</button>
+  </div>
+</div>
+
+<!-- DAILY MOOD -->
+<div id="dailyMood" class="screen">
+  <h2>How do you feel today?</h2>
+  <div class="mood-options">
+    <button onclick="setMood('Happy')">😊 Happy</button>
+    <button onclick="setMood('Sad')">😢 Sad</button>
+    <button onclick="setMood('Angry')">😡 Angry</button>
+    <button onclick="setMood('Tired')">😴 Tired</button>
+  </div>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div id="app" class="screen">
+  <aside class="sidebar">
+    <h2>MOODERIA</h2>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('mood')">Mood</button>
+    <button onclick="showPage('zodiac')">Zodiac</button>
+    <button onclick="showPage('community')">City Hall</button>
+    <button onclick="showPage('profile')">Profile</button>
+    <button onclick="showPage('settings')">Settings</button>
+  </aside>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <h1>Welcome to Mooderia</h1>
+      <p>Your emotional dashboard.</p>
+    </section>
+
+    <!-- MOOD -->
+    <section id="mood" class="page">
+      <h1>Mood Hub</h1>
+
+      <div class="card">
+        <textarea id="postText" placeholder="Express how you feel..."></textarea>
+        <button onclick="addPost()">Post</button>
+      </div>
+
+      <div id="posts"></div>
+
+      <div class="card">
+        <h3>Teller</h3>
+        <input id="tellerQ" placeholder="Ask something...">
+        <button onclick="tell()">Ask</button>
+        <p id="tellerA"></p>
+      </div>
+
+      <div class="card">
+        <h3>Meditation</h3>
+        <p>"Breathe. This moment is enough."</p>
+      </div>
+    </section>
+
+    <!-- ZODIAC -->
+    <section id="zodiac" class="page">
+      <h1>Zodiac</h1>
+
+      <div class="card">
+        <h3>Love Matcher</h3>
+        <input placeholder="Birthday 1 (MM/DD)">
+        <input placeholder="Birthday 2 (MM/DD)">
+        <button onclick="loveMatch()">Match</button>
+        <p id="loveResult"></p>
+      </div>
+
+      <div class="card">
+        <h3>Daily Horoscope</h3>
+        <p id="horoscope">Today is a day of reflection and growth.</p>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="page">
+      <h1>City Hall</h1>
+      <p>Community chat coming soon.</p>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="page">
+      <h1>Your Profile</h1>
+      <p id="profileMood"></p>
+      <h3>Your Posts</h3>
+      <div id="myPosts"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="page">
+      <h1>Settings</h1>
+      <button onclick="toggleDark()">Toggle Dark Mode</button>
+      <button onclick="logout()">Log Out</button>
+      <button class="danger">Delete Account</button>
+    </section>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
